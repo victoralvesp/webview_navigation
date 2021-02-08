@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WebviewNavigation.ViewModels"
+             x:Class="WebviewNavigation.MainPage"
+             Background="Blue">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout CompressedLayout.IsHeadless="True">
+        <WebView
+            IsVisible="{Binding ShowWebView}"
+            Source="http://192.168.10.210:10000"
+            Navigated="WebView_Navigated"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            />
+        <ActivityIndicator x:Name="actInd"
+                             IsRunning="True"
+                             IsVisible="{Binding ShowLoading}" 
+                             Background="Transparent"
+                             VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                             Color="Black"/>
+
+    </StackLayout>
+
+</ContentPage>
